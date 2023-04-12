@@ -1,5 +1,3 @@
-# Exemplu de Makefile pentru soluții scrise în C++.
-
 CC = g++
 CCFLAGS = -Wall -Wextra -std=c++17 -O0 -lm
 
@@ -16,7 +14,6 @@ run-p3:
 run-p4:
 	./semnale
 
-# Nu uitați să modificați numele surselor și, eventual, ale executabilelor.
 feribot: feribot.cpp
 	$(CC) -o $@ $^ $(CCFLAGS)
 nostory: nostory.cpp
@@ -26,6 +23,5 @@ sushi: sushi.cpp
 semnale: semnale.cpp
 	$(CC) -o $@ $^ $(CCFLAGS)
 
-# Vom șterge executabilele.
 clean:
 	rm -f feribot nostory sushi semnale
