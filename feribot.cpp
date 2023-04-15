@@ -1,9 +1,11 @@
 #include <bits/stdc++.h>
 
+using namespace std;
+
 bool comparator(uint_fast64_t mid,
                 uint_fast32_t n,
                 uint_fast32_t k,
-                std::vector <uint_fast64_t> weights) {
+                vector <uint_fast64_t> weights) {
     uint_fast32_t partitions = 1;
     uint_fast64_t partitions_sum = 0;
 
@@ -26,11 +28,11 @@ bool comparator(uint_fast64_t mid,
 
 uint_fast64_t task(uint_fast32_t n,
                    uint_fast32_t k,
-                   std::vector <uint_fast64_t> weights) {
-    auto it = max_element(std::begin(weights), std::end(weights));
+                   vector <uint_fast64_t> weights) {
+    auto it = max_element(begin(weights), end(weights));
 
     uint_fast64_t left = *it;
-    uint_fast64_t right = std::accumulate(weights.begin(), weights.end(), 0ULL);
+    uint_fast64_t right = accumulate(weights.begin(), weights.end(), 0ULL);
 
     uint_fast64_t ans = 0;
     while (left <= right) {
@@ -47,20 +49,20 @@ uint_fast64_t task(uint_fast32_t n,
     return ans;
 }
 
-int main(void) {
+int main() {
     freopen("feribot.in", "r", stdin);
     freopen("feribot.out", "w", stdout);
 
     uint_fast32_t n, k;
-    std::cin >> n >> k;
+    cin >> n >> k;
 
-    std::vector <uint_fast64_t> weights;
+    vector <uint_fast64_t> weights;
     uint_fast64_t weight;
     for (uint_fast32_t i = 0; i < n; ++i) {
-        std::cin >> weight;
+        cin >> weight;
         weights.push_back(weight);
     }
 
-    std::cout << task(n, k, weights);
+    cout << task(n, k, weights);
     return 0;
 }

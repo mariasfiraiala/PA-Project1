@@ -16,7 +16,7 @@ int task1(uint_fast32_t n, uint_fast32_t m, int x,
 	}
 
 	uint_fast32_t price_limit = x * n;
-	vector< vector<int> > dp(m + 1, vector<int>(price_limit + 1, 0));
+	vector<vector<int>> dp(m + 1, vector<int>(price_limit + 1, 0));
 
 	for (int i = 1; i <= m; ++i) {
 		for (int cap = 0; cap <= price_limit; ++cap) {
@@ -49,7 +49,7 @@ int task2(uint_fast32_t n, uint_fast32_t m, int x,
 	p.insert(p.end(), p.begin(), p.end());
 
 	uint_fast32_t price_limit = x * n;
-	vector< vector<int> > dp(2 * m + 1, vector<int>(price_limit + 1, 0));
+	vector<vector<int>> dp(2 * m + 1, vector<int>(price_limit + 1, 0));
 
 	for (int i = 1; i <= 2 * m; ++i) {
 		for (int cap = 0; cap <= price_limit; ++cap) {
@@ -83,8 +83,8 @@ int task3(uint_fast32_t n, uint_fast32_t m, int x,
 	p.insert(p.end(), p.begin(), p.end());
 
 	uint_fast32_t price_limit = x * n;
-	vector< vector< vector<int> > > dp(2 * m + 1, vector< vector <int> >
-									  (price_limit + 1, vector <int>(n + 1)));
+	vector<vector<vector<int>>> dp(2 * m + 1, vector<vector<int>>
+								  (price_limit + 1, vector<int>(n + 1)));
 
 	for (int i = 1; i <= 2 * m; ++i) {
 		for (int cap = 0; cap <= price_limit; ++cap) {
@@ -113,15 +113,15 @@ int main() {
 	uint_fast32_t m;  // number of sushi types
 	int x;  // how much each of you is willing to spend
 
-	vector <int> prices;  // prices of each sushi type
+	vector<int> prices;  // prices of each sushi type
 	// the grades you and your friends gave to each sushi type
-	vector <vector <int> > grades;
+	vector<vector<int>> grades;
 
 	cin >> task;
 	cin >> n >> m >> x;
 
 	prices.assign(m, 0);
-	grades.assign(n, vector <int> (m, 0));
+	grades.assign(n, vector<int>(m, 0));
 
 	// price of each sushi
 	for(int i = 0; i < m; ++i) {
@@ -148,10 +148,10 @@ int main() {
 			ans = task3(n, m, x, prices, grades);
 			break;
 		default:
-			cout << "wrong task number" << endl;
+			cout << "wrong task number" << "\n";
 	}
 
-	cout << ans << endl;
+	cout << ans << "\n";
 
 	return 0;
 }

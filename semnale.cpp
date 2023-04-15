@@ -5,7 +5,7 @@
 using namespace std;
 
 int type1(uint_fast32_t x, uint_fast32_t y) {
-    vector< vector<int> > dp(x + 1, vector<int>(y + 1, 0));
+    vector<vector<int>> dp(x + 1, vector<int>(y + 1, 0));
 
 	for (uint_fast32_t l = 0; l <= x; ++l)
 		dp[l][0] = 1;
@@ -19,7 +19,7 @@ int type1(uint_fast32_t x, uint_fast32_t y) {
 }
 
 int type2(uint_fast32_t x, uint_fast32_t y) {
-    vector< vector<int> > dp(x + 1, vector<int>(y + 1, 0));
+    vector<vector<int>> dp(x + 1, vector<int>(y + 1, 0));
 
 	for (uint_fast32_t l = 0; l <= x; ++l) {
 		dp[l][0] = 1;
@@ -29,7 +29,7 @@ int type2(uint_fast32_t x, uint_fast32_t y) {
 	dp[0][1] = dp[0][2] = 1;
 
 	for (uint_fast32_t i = 1; i <= x; ++i)
-		for (uint_fast32_t j = 1; j <= y; ++j)
+		for (uint_fast32_t j = 2; j <= y; ++j)
 			dp[i][j] = ((dp[i - 1][j] + dp[i - 1][j - 1]) % MOD +
 				dp[i - 1][j - 2]) % MOD;
 
@@ -52,7 +52,7 @@ int main() {
 			cout << type2(x, y);
 			break;
 		default:
-			cout << "wrong task number" << endl;
+			cout << "wrong task number" << "\n";
 	}
 
     return 0;
