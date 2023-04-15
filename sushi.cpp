@@ -2,7 +2,8 @@
 
 using namespace std;
 
-int task1(int n, int m, int x, vector <int>& p, vector <vector <int> >& g) {
+int task1(uint_fast32_t n, uint_fast32_t m, int x,
+		  vector <int>& p, vector <vector <int> >& g) {
 	vector<uint_fast32_t> sum_g(m);
 
 	for (uint_fast32_t c = 0; c < m; ++c) {
@@ -31,7 +32,8 @@ int task1(int n, int m, int x, vector <int>& p, vector <vector <int> >& g) {
 	return dp[m][price_limit];
 }
 
-int task2(int n, int m, int x, vector <int> &p, vector <vector <int> > &g) {
+int task2(uint_fast32_t n, uint_fast32_t m, int x,
+		  vector <int> &p, vector <vector <int> > &g) {
 	vector<uint_fast32_t> sum_g(m);
 
 	for (uint_fast32_t c = 0; c < m; ++c) {
@@ -64,7 +66,8 @@ int task2(int n, int m, int x, vector <int> &p, vector <vector <int> > &g) {
 	return dp[2 * m][price_limit];
 }
 
-int task3(int n, int m, int x, vector <int> &p, vector <vector <int> > &g) {
+int task3(uint_fast32_t n, uint_fast32_t m, int x,
+		  vector <int> &p, vector <vector <int> > &g) {
 	vector<uint_fast32_t> sum_g(m);
 
 	for (uint_fast32_t c = 0; c < m; ++c) {
@@ -106,8 +109,8 @@ int main() {
 
 	int task;  // task number
 
-	int n;  // number of friends
-	int m;  // number of sushi types
+	uint_fast32_t n;  // number of friends
+	uint_fast32_t m;  // number of sushi types
 	int x;  // how much each of you is willing to spend
 
 	vector <int> prices;  // prices of each sushi type
