@@ -1,4 +1,4 @@
-Copyright 2023 Maria Sfiraiala(maria.sfiraiala@stud.acs.upb.ro)
+Copyright 2023 Maria Sfiraiala (maria.sfiraiala@stud.acs.upb.ro)
 
 # Almost Without Gigel - Project1
 
@@ -142,14 +142,35 @@ We can construct 1 signal with 0 zeros and 2 ones, so we've set dp[0][2] to 1; t
 
 #### Description
 
-* We've read 2 elements in a loop: first the character, then the number of instances for the char.
+* We've read 2 elements in a loop: first the character, then the number of instances for the character.
 
-* If the char was either 'n' or 'u' we've used fibonacci to get the number of variations the character introduces.
-For each character, let n be its number of instances in the string, the variation of the original string gets multiplied by fibonacci(n).
+* If the character was either 'n' or 'u', we've used Fibonacci to get the number of variations the character introduces.
+For each 'n' or 'u' character, let n be their number of instances in the string, the variation of the original string gets multiplied by the n-th Fibonacci number.
+
+* We also had to come up with a fast algorithm to get the n-th Fibonacci element, an approach that would fit in the O(logn) complexity class.
+The algorithm is based on the observation that, by knowing fibonacci(n - 1) and fibonacci(n) we can easily get fibonacci(2n) and fibonacci(2n + 1):
+
+   fibonacci(n) = fibonacci(n)
+
+   fibonacci(n + 1) = fibonacci(n) + fibonacci(n - 1)
+
+   fibonacci(n + 2) = fibonacci(n + 1) + fibonacci(n) = 2 * fibonacci(n) + fibonacci(n - 1)
+
+   fibonacci(n + 3) = fibonacci(n + 2) + fibonacci(n + 1) = 3 * fibonacci(n) + 2 * fibonacci(n - 1)
+
+   . \
+   . \
+   . 
+
+   fibonacci(n + k) = fibonacci(n) * fibonacci(k + 1) + fibonacci(n - 1) * fibonacci(k)
+
+   fibonacci(2n + 1) = fibonacci(n) * fibonacci(n + 2) + fibonacci(n - 1) * fibonacci(n + 1)
+
+* Following this idea, the Fibonacci algorithm that was implemented is of O(logn) time complexity and avoids using matrix multiplication.
 
 #### Complexity
 
 | Complexity | Task1 |
 |------------|-------|
-| Time | O(G * log(L)) |
+| Time | O(G * logL) |
 | Space | O(1) |
