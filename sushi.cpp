@@ -83,24 +83,24 @@ int task3(uint_fast32_t n, uint_fast32_t m, int x,
 	p.insert(p.end(), p.begin(), p.end());
 
 	uint_fast32_t price_limit = x * n;
-	vector<vector<vector<int>>> dp(2 * m + 1, vector<vector<int>>
-								  (price_limit + 1, vector<int>(n + 1)));
+	vector<vector<int>> dp(2 * m + 1, vector<int>(price_limit + 1, 0));
+	vector<vector<int>> dp_aux(2 * m + 1, vector<int>(price_limit + 1, 0));
 
-	for (int i = 1; i <= 2 * m; ++i) {
-		for (int cap = 0; cap <= price_limit; ++cap) {
-			for (int j = 1; j <= n; ++j) {
-				dp[i][cap][j] = dp[i - 1][cap][j];
+	for (int j = 1; j <= n; j++) {
+		swap(dp, dp_aux);
+		for (int i = 1; i <= 2 * m; ++i) {
+			for (int cap = 0; cap <= price_limit; ++cap) {
+				dp[i][cap] = dp[i - 1][cap];
 
 				if (cap - p[i - 1] >= 0) {
-					int sol_aux = dp[i - 1][cap - p[i - 1]][j - 1] + sum_g[i - 1];
-
-					dp[i][cap][j] = max(dp[i][cap][j], sol_aux);
+					int sol_aux = dp_aux[i - 1][cap - p[i - 1]] + sum_g[i - 1];
+					dp[i][cap] = max(dp[i][cap], sol_aux);
 				}
 			}
 		}
 	}
 
-	return dp[2 * m][price_limit][n];
+	return dp[2 * m][price_limit];
 }
 
 int main() {

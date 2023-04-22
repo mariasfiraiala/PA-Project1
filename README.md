@@ -80,15 +80,15 @@ This way, we can choose one dish, once, twice or even never, and still apply the
 
 **Task3**
 
-We've applied the same approach as in **Task2** in order to reduce the problem and used a third dimension in the `dp` matrix for the total number of dishes the friends will ask for.
+We've applied the same approach as in **Task2** in order to reduce the problem and used a second matrix, besides `dp` to keep the previous solution for the total number of dishes the friends will ask for.
 
-Following this idea, for a given (i, cap, j) state of the loop, the indeces signify:
+Following this idea, for a given (j, i, cap) state of the loop, the indeces signify:
+
+* j = we've used j elements until now
 
 * i = we choose the i-th element
 
 * cap = the knapsack has cap capacity
-
-* j = we've used j elements until now
 
 #### Complexity
 
