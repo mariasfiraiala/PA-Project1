@@ -95,10 +95,7 @@ Following this idea, for a given (j, i, cap) state of the loop, the indeces sign
 | Complexity | Task1 | Task2 | Task3 |
 |------------|-------|-------|-------|
 | Time | O(m * x * n) | O(m * x * n) | O(m * x * $n^2$) |
-| Space | O(m * x * n) | O(m * x * n) | O(m * x * $n^2$) |
-
-**Note**: On my system with Intel i5-9300H (8) @ 4.100GHz and 8GB of RAM all the tests pass, however on VMChecker the last one fails due to TLE.
-I am perfectly aware of the fact that doubling the matrix in order to simulate the Knapsack Problem is the issue here, however the time complexity of the algorithm isn't (thoretically) affected by the workaround.
+| Space | O(m * x * n) | O(m * x * n) | O(m * x * n) |
 
 ### `semnale.cpp`
 
